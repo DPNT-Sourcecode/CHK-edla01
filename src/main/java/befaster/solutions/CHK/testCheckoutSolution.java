@@ -1,14 +1,15 @@
 package befaster.solutions.CHK;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.*;
 
-import org.junit.jupiter.api.Test;
+class TestCheckoutSolution {
 
-class testCheckoutSolution {
-
+	
 	@Test
 	void test() {
-		fail("Not yet implemented");
+		CheckoutSolution	checkout = new CheckoutSolution();
+		
+		assert(checkout.checkout("AB") == 80);
 	}
 
 }
