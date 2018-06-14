@@ -23,6 +23,6 @@ public class SkuOffer
 	
 	public boolean isEligible(int aQuantity)
 	{
-		return aQuantity >  offerQuantity;
+		return aQuantity >=  offerQuantity;
 	}
 }
