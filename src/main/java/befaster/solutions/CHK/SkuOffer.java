@@ -25,4 +25,6 @@ public class SkuOffer
 	{
 		return aQuantity >=  offerQuantity;
 	}
+	
+	
 }

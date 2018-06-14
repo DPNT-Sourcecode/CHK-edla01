@@ -35,18 +35,21 @@ public class SKU
 	public int getBestPrice(int forQuantity)
 	{
 		
-		int	bestPrice 	= forQuantity * price;
-		int	offerPrice	= 0;
+		int	bestPrice 			= forQuantity * price;
+		int	offerPrice			= 0;
+		
+		int	nonOfferQuantity	= 0;
 		
 		if ( !offers.isEmpty() )
 		{
 			for ( SkuOffer anOffer: offers)
 			{
 				if ( anOffer.isEligible(forQuantity) )
-				{
-					System.out.println("Offer " + anOffer.getPrice() + " = " + anOffer.getQuantity() );
+				{		
+					// Need the quantity above the offer quantity
+					nonOfferQuantity	= forQuantity - anOffer.getQuantity(); 
 					
-					offerPrice = anOffer.getPrice() * forQuantity;
+					offerPrice 			= anOffer.getPrice() + getBestPrice(nonOfferQuantity);
 					if ( offerPrice < bestPrice )
 					{
 						bestPrice = offerPrice;
