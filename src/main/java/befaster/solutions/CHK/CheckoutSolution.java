@@ -24,6 +24,7 @@ public class CheckoutSolution {
 		addSku(C);
 		addSku(D);
 		addSku(E);
+		addSku(F);
 
 		A.addOffer(new SkuOffer(3,130));
 		A.addOffer(new SkuOffer(5,200));
@@ -104,8 +105,8 @@ public class CheckoutSolution {
     		return -1;
     	}
     	
-    	System.out.println(skus);
-    	printBasket(skusInBasket);
+    	//System.out.println(skus);
+    	//printBasket(skusInBasket);
     	
     	// remove freebies up front
     	for ( String aSkuId: skusInBasket.keySet() )
