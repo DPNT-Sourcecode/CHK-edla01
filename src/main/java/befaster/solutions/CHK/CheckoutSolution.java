@@ -17,6 +17,7 @@ public class CheckoutSolution {
 		SKU	C = new SKU("C",20);
 		SKU	D = new SKU("D",15);
 		SKU	E = new SKU("E",40);
+		SKU	F = new SKU("F",10);
 		
 		addSku(A);
 		addSku(B);
@@ -29,6 +30,7 @@ public class CheckoutSolution {
 		B.addOffer(new SkuOffer(2,45));
 		
 		E.addOffer(new SkuOffer(2,80,B));  // free B if two E
+		F.addOffer(new SkuOffer(3,20));    // Three for price of two
 	}
 	
 	public void addSku(SKU aSku)

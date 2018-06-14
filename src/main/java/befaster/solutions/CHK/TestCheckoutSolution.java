@@ -22,6 +22,12 @@ public class TestCheckoutSolution {
 		assert(checkout.checkout("EEEB") == 120);
 		assert(checkout.checkout("EEEEBB") == 160);
 
+		assert(checkout.checkout("FF") == 20);
+		assert(checkout.checkout("FFF") == 20);
+		assert(checkout.checkout("FFFF") == 30);
+		assert(checkout.checkout("FFFFF") == 40);
+		assert(checkout.checkout("FFFFFF") == 40);
+
 	}
 
 }
