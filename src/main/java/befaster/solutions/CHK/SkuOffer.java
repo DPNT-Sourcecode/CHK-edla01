@@ -4,12 +4,21 @@ public class SkuOffer
 {
 	private	int	offerQuantity;
 	private int offerPrice;
+	private SKU	offerFreebie;
 	
 	public SkuOffer(int quantity, int price)
 	{
 		offerQuantity = quantity;
 		offerPrice = price;
 	}
+	
+	public SkuOffer(int quantity, int price, SKU freebie)
+	{
+		offerQuantity = quantity;
+		offerPrice = price;
+		offerFreebie = freebie;
+	}
+	
 	
 	public int getPrice()
 	{
@@ -19,6 +28,12 @@ public class SkuOffer
 	public int getQuantity()
 	{
 		return offerQuantity;
+	}
+	
+	public SKU getFreebie()
+	{
+		return offerFreebie;
+	
 	}
 	
 	public boolean isEligible(int aQuantity)

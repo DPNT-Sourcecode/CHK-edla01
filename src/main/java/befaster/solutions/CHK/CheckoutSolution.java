@@ -12,16 +12,23 @@ public class CheckoutSolution {
 	 */
 	public CheckoutSolution()
 	{
-		addSku(new SKU("A",50));
-		addSku(new SKU("B",30));
-		addSku(new SKU("C",20));
-		addSku(new SKU("D",15));
-		addSku(new SKU("E",40));
+		SKU	A = new SKU("A",50);
+		SKU	B = new SKU("B",30);
+		SKU	C = new SKU("C",20);
+		SKU	D = new SKU("D",15);
+		SKU	E = new SKU("E",40,B);
+		
+		addSku(A);
+		addSku(B);
+		addSku(C));
+		addSku(D);
+		addSku(E);
 
 		getSku("A").addOffer(new SkuOffer(3,130));
 		getSku("A").addOffer(new SkuOffer(5,200));
 		getSku("B").addOffer(new SkuOffer(2,45));
-		getSku("E").addOffer(new SkuOffer(3,80));  // Three for price of two
+		
+		getSku("E").addOffer(new SkuOffer(2,80,getSku("B")));  // free B if two E
 	}
 	
 	public void addSku(SKU aSku)
