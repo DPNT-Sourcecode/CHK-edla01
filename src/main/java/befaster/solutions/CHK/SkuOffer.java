@@ -30,6 +30,11 @@ public class SkuOffer
 		return offerQuantity;
 	}
 	
+	public void setFreebie(SKU skuIn)
+	{
+		offerFreebie = skuIn;
+	}
+	
 	public SKU getFreebie()
 	{
 		return offerFreebie;
