@@ -9,7 +9,9 @@ public class TestHello {
 	@Test
 	public void test() {
 		HelloSolution hello = new HelloSolution();
-		assert(hello.hello("world").equalsIgnoreCase("Hello, World!"));
+		assert(hello.hello(null).equalsIgnoreCase("Hello, World!"));
+		assert(hello.hello("valtech").equalsIgnoreCase("Hello, valtech!"));
+
 	}
 
 }
