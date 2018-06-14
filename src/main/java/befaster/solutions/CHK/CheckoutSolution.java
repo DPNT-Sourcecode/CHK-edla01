@@ -31,6 +31,36 @@ public class CheckoutSolution {
 		return skusInShop.get(id);
 	}
 	
+	public HashMap<String,Integer>	decodeSkuString(String skuString)
+	{
+		HashMap<String,Integer>	skusInBasket	= new HashMap<String,Integer>();
+		String					aSku;
+		Integer					skuCount;
+		
+    	if ( skuString != null && skuString.length() > 0)
+    	{
+    		for (int index=0;index <skuString.length(); index++)
+    		{
+    			aSku = new String(skuString.substring(index, index+1));
+    			
+    			if ( skusInShop.containsKey(aSku) )
+    			{
+    				if (skusInBasket.containsKey(aSku) )
+        			{
+        				skuCount = skusInBasket.get(aSku);
+        				skusInBasket.put(aSku, Integer.valueOf(skuCount.intValue()+1) );
+        			}
+        			else
+        			{
+        				skusInBasket.put(aSku, Integer.valueOf(1) );
+        			}
+    			}
+    			
+    		}
+    	}
+		return skusInBasket;
+	}
+	
 	/**
 	 * Calculate value of basket
 	 * @param skus a String containing the SKUs of all the products in the basket
@@ -38,29 +68,22 @@ public class CheckoutSolution {
 	 */
     public Integer checkout(String skus) {
     	int						totalValue 		= 0;
-    	String 					aSku			= 0;
-    	Integer					aSkuCount		= null;
-    	HashMap<String,Integer>	skusInBasket	= new HashMap<String,Integer>();
-    	
-    	// Decode
-    	if ( skus != null && skus.length() > 0)
+    	HashMap<String,Integer>	skusInBasket	= decodeSkuString(skus);
+    	SKU						aSku;
+
+    	for ( String aSkuId: skusInBasket.keySet() )
     	{
-    		for (int index=0;index <skus.length(); index++)
+    		aSku = skusInShop.get(aSkuId);
+    		
+    		if ( aSku != null )
     		{
-    			aSku = new String(skus.substring(index, index+1));
-    			
-    			if (skusInBasket.containsKey(aSku) )
-    			{
-    				aSkuCount = skusInBasket.get(aSku);
-    				skusInBasket.put(aSku, Integer.valueOf(aSkuCount.intValue()+1) );
-    			}
-    			else
-    			{
-    				skusInBasket.put(aSku, Integer.valueOf(1) );
-    			}
+    			totalValue  += aSku.getBestPrice(skusInBasket.get(aSkuId));
+    		}
+    		else
+    		{
+    			System.out.println("Sku not found - Shouldnt happen");
     		}
     	}
-    	
     	
     	return Integer.valueOf(totalValue);
     }
