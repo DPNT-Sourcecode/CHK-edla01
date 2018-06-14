@@ -29,5 +29,13 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/dev/eclipse/plugins/org.junit.platform.runner_1.0.0.v20170910-2246.jar"/>
 	<classpathentry kind="lib" path="C:/dev/eclipse/plugins/org.junit.platform.commons_1.0.0.v20170910-2246.jar"/>
+	<classpathentry kind="lib" path="C:/dev/eclipse/plugins/org.junit.platform.suite.api_1.0.0.v20170910-2246.jar"/>
+	<classpathentry kind="lib" path="C:/dev/eclipse/plugins/org.junit.platform.launcher_1.0.0.v20170910-2246.jar"/>
+	<classpathentry kind="lib" path="C:/dev/eclipse/plugins/org.junit.jupiter.api_5.0.0.v20170910-2246.jar"/>
+	<classpathentry kind="lib" path="C:/dev/eclipse/plugins/org.junit.jupiter.engine_5.0.0.v20170910-2246.jar"/>
+	<classpathentry kind="lib" path="C:/dev/eclipse/plugins/org.junit.jupiter.migrationsupport_5.0.0.v20170910-2246.jar"/>
+	<classpathentry kind="lib" path="C:/dev/eclipse/plugins/org.junit.jupiter.params_5.0.0.v20170910-2246.jar"/>
+	<classpathentry kind="lib" path="C:/dev/eclipse/plugins/org.junit.platform.engine_1.0.0.v20170910-2246.jar"/>
+	<classpathentry kind="lib" path="C:/dev/eclipse/plugins/org.junit.vintage.engine_4.12.0.v20170910-2246.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

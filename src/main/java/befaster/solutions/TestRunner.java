@@ -2,7 +2,6 @@ package befaster.solutions;
 
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
-import org.junit.runner.Failure;
 import org.junit.runner.notification.Failure;
 
 import befaster.solutions.SUM.TestSumSolution;
