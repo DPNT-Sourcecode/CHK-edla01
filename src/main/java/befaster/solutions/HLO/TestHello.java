@@ -8,7 +8,8 @@ class TestHello {
 
 	@Test
 	void test() {
-		fail("Not yet implemented");
+		HelloSolution hello = new HelloSolution();
+		assertNotNull(hello.hello("world"));
 	}
 
 }
