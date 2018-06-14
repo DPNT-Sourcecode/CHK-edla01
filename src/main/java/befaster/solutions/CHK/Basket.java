@@ -1,6 +1,6 @@
 package befaster.solutions.CHK;
 
-import java.util.HashMap;
+import java.util.*;
 
 public class Basket {
 	
@@ -47,6 +47,19 @@ public class Basket {
 		}
 	}
 	
+	public void removeSkus(List<String> skuList)
+	{
+		for (String aSku: skuList)
+			removeSku(aSku);
+		
+	}
+	
+	public void removeListOfSkus(List<SKU> skuList)
+	{
+		for (SKU aSku: skuList)
+			removeSku(aSku.getId());
+		
+	}
 	
 	public void	decodeSkuString(String skuString) throws DecodeException
 	{
