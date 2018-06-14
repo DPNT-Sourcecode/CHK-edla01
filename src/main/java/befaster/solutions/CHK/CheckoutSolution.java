@@ -12,6 +12,7 @@ public class CheckoutSolution {
 	 */
 	public CheckoutSolution()
 	{
+		/**
 		SKU	A = new SKU("A",50);
 		SKU	B = new SKU("B",30);
 		SKU	C = new SKU("C",20);
@@ -29,9 +30,11 @@ public class CheckoutSolution {
 		A.addOffer(new SkuOffer(3,130));
 		A.addOffer(new SkuOffer(5,200));
 		B.addOffer(new SkuOffer(2,45));
+		*/
+		SkuLoader loader = new SkuLoader(this);
+		loader.loadFile("C://dev//tdl-runner-java//sku.txt");
 		
-		E.addOffer(new SkuOffer(2,80,B));  // free B if two E
-		F.addOffer(new SkuOffer(3,20));    // Three for price of two
+
 	}
 	
 	public void addSku(SKU aSku)
