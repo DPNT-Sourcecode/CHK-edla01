@@ -31,7 +31,7 @@ public class CheckoutSolution {
 		return skusInShop.get(id);
 	}
 	
-	public HashMap<String,Integer>	decodeSkuString(String skuString)
+	public HashMap<String,Integer>	decodeSkuString(String skuString) throws DecodeException
 	{
 		HashMap<String,Integer>	skusInBasket	= new HashMap<String,Integer>();
 		String					aSku;
@@ -55,6 +55,8 @@ public class CheckoutSolution {
         				skusInBasket.put(aSku, Integer.valueOf(1) );
         			}
     			}
+    			else
+    				throw new DecodeException("Illegal value in String");
     			
     		}
     	}
@@ -63,14 +65,24 @@ public class CheckoutSolution {
 	
 	/**
 	 * Calculate value of basket
+	 * For any illegal input return -1
 	 * @param skus a String containing the SKUs of all the products in the basket
 	 * @return Integer value
 	 */
     public Integer checkout(String skus) {
     	int						totalValue 		= 0;
-    	HashMap<String,Integer>	skusInBasket	= decodeSkuString(skus);
+    	HashMap<String,Integer>	skusInBasket	= null;
     	SKU						aSku;
 
+    	try
+    	{
+    		skusInBasket	= decodeSkuString(skus);
+    	}
+    	catch (DecodeException e)
+    	{
+    		return -1;
+    	}
+    	
     	for ( String aSkuId: skusInBasket.keySet() )
     	{
     		aSku = skusInShop.get(aSkuId);
