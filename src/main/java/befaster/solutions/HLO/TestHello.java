@@ -4,10 +4,10 @@ import org.junit.*;
 
 import org.junit.Test;
 
-class TestHello {
+public class TestHello {
 
 	@Test
-	void test() {
+	public void test() {
 		HelloSolution hello = new HelloSolution();
 		assert(hello.hello("world").equalsIgnoreCase("Hello, World!"));
 	}
