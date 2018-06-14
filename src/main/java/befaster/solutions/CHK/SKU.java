@@ -21,6 +21,11 @@ public class SKU
 		return id;
 	}
 	
+	public void addOffer(SkuOffer anOffer)
+	{
+		offers.add(anOffer);
+	}
+	
 	/**
 	 * Get (best) price
 	 * This is dependent on quantity

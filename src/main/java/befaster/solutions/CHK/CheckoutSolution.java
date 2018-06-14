@@ -3,6 +3,34 @@ package befaster.solutions.CHK;
 import java.util.HashMap;
 
 public class CheckoutSolution {
+	
+	HashMap<String,SKU>	skusInShop	= new HashMap<String,SKU>();
+	
+	/**
+	 * Constructor
+	 * Set up valid Skus - would do this in reality
+	 */
+	public CheckoutSolution()
+	{
+		addSku(new SKU("A",50));
+		addSku(new SKU("B",30));
+		addSku(new SKU("C",20));
+		addSku(new SKU("D",15));
+		
+		getSku("A").addOffer(new SkuOffer(3,130));
+		getSku("B").addOffer(new SkuOffer(2,45));
+	}
+	
+	public void addSku(SKU aSku)
+	{
+		skusInShop.put(aSku.getId(), aSku);
+	}
+	
+	public SKU getSku(String id)
+	{
+		return skusInShop.get(id);
+	}
+	
 	/**
 	 * Calculate value of basket
 	 * @param skus a String containing the SKUs of all the products in the basket
