@@ -75,9 +75,11 @@ public class CheckoutSolution {
     	{
     		aSku = skusInShop.get(aSkuId);
     		
+    		System.out.println("SKU " + aSku);
     		if ( aSku != null )
     		{
     			totalValue  += aSku.getBestPrice(skusInBasket.get(aSkuId));
+    			System.out.println("totalValue " + totalValue);
     		}
     		else
     		{

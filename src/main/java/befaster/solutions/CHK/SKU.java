@@ -44,6 +44,7 @@ public class SKU
 			{
 				if ( anOffer.isEligible(forQuantity) )
 				{
+					System.out.println("Offer");
 					offerPrice = anOffer.getPrice() * forQuantity;
 					if ( offerPrice < bestPrice )
 					{
