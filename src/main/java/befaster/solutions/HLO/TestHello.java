@@ -1,16 +1,15 @@
 package befaster.solutions.HLO;
 
+import org.junit.*;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
-
 
 class TestHello {
 
 	@Test
 	void test() {
 		HelloSolution hello = new HelloSolution();
-		assertNotNull(hello.hello("world"));
+		assert(hello.hello("world").equalsIgnoreCase("Hello, World!"));
 	}
 
 }

@@ -7,6 +7,6 @@ public class HelloSolution {
  	   @return = a String containing a message
 	 */
     public String hello(String friendName) {
-        return("Hello");
+        return("Hello, World!");
     }
 }
