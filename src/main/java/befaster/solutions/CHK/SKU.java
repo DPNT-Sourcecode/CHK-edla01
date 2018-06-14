@@ -59,4 +59,25 @@ public class SKU
 		}
 		return bestPrice;
 	}
+	
+	public List<SKU>		getFreebies(int forQuantity)
+	{
+		List<SKU>	freebies 	= new ArrayList<SKU>();
+		
+		if ( !offers.isEmpty() )
+		{			
+			for ( SkuOffer anOffer: offers)
+			{
+				if ( anOffer.isEligible(forQuantity) )
+				{		
+					if ( anOffer.getFreebie() != null )
+					{
+						freebies.add( anOffer.getFreebie());
+						freebies.addAll(getFreebies(forQuantity- anOffer.getQuantity()));
+					}
+				}
+			}
+		}
+		return freebies;
+	}
 }

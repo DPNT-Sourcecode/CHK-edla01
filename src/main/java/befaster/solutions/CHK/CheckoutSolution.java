@@ -1,6 +1,6 @@
 package befaster.solutions.CHK;
 
-import java.util.HashMap;
+import java.util.*;
 
 public class CheckoutSolution {
 	
@@ -36,6 +36,7 @@ public class CheckoutSolution {
 		skusInShop.put(aSku.getId(), aSku);
 	}
 	
+
 	public SKU getSku(String id)
 	{
 		return skusInShop.get(id);
@@ -93,6 +94,37 @@ public class CheckoutSolution {
     		return -1;
     	}
     	
+    	// remove freebies up front
+    	for ( String aSkuId: skusInBasket.keySet() )
+    	{
+    		aSku = skusInShop.get(aSkuId);
+    		
+    		if ( aSku != null )
+    		{
+    			List<SKU>	freebies = aSku.getFreebies(skusInBasket.get(aSkuId));
+    			
+    			for ( SKU freebie: freebies )
+    			{
+    				String	freebieId 	= freebie.getId();
+    				int		value 		= 0;
+    				
+    				if (skusInBasket.containsKey(freebieId) )
+    				{
+    					value 		= skusInBasket.get(freebieId);
+    					if ( value > 0)
+    					{
+    						skusInBasket.put(freebieId, value-1);
+    					}
+    				}    				
+    			}
+    		}
+    		else
+    		{
+    			System.out.println("Sku not found - Shouldnt happen");
+    		}
+    	}
+
+    	// Sum up prices
     	for ( String aSkuId: skusInBasket.keySet() )
     	{
     		aSku = skusInShop.get(aSkuId);
