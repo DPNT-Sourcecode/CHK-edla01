@@ -26,12 +26,12 @@ public class Basket {
     		{
     			aSku = new String(skuString.substring(index, index+1));
     			
-    			if ( skusInShop.containsKey(aSku) )
+    			if ( theShop.isValidSku(aSku) )
     			{
     				if (skusInBasket.containsKey(aSku) )
         			{
         				skuCount = skusInBasket.get(aSku);
-        				skusInBasket.put(aSku, Integer.valueOf(skuCount.intValue()+1) );
+        				basketItems.put(aSku, Integer.valueOf(skuCount.intValue()+1) );
         			}
         			else
         			{
@@ -43,6 +43,14 @@ public class Basket {
     			
     		}
     	}
-		return skusInBasket;
 	}
+	
+	public void printBasket()
+	{
+		for ( String aSkuId: basketItems.keySet() )
+    	{
+			System.out.println("SKU " + aSkuId + " = " + basketItems.get(aSkuId));
+    	}
+	}
+	
 }
