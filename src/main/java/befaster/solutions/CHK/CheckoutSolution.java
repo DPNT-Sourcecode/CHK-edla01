@@ -16,9 +16,12 @@ public class CheckoutSolution {
 		addSku(new SKU("B",30));
 		addSku(new SKU("C",20));
 		addSku(new SKU("D",15));
-		
+		addSku(new SKU("E",40));
+
 		getSku("A").addOffer(new SkuOffer(3,130));
+		getSku("A").addOffer(new SkuOffer(5,200));
 		getSku("B").addOffer(new SkuOffer(2,45));
+		getSku("E").addOffer(new SkuOffer(3,80));  // Three for price of two
 	}
 	
 	public void addSku(SKU aSku)
