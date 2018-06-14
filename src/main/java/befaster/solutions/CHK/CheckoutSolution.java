@@ -4,7 +4,8 @@ import java.util.*;
 
 public class CheckoutSolution {
 	
-	HashMap<String,SKU>	skusInShop	= new HashMap<String,SKU>();
+	Shop	theShop	= new Shop();
+	
 	
 	/**
 	 * Constructor
@@ -31,62 +32,15 @@ public class CheckoutSolution {
 		A.addOffer(new SkuOffer(5,200));
 		B.addOffer(new SkuOffer(2,45));
 		*/
-		SkuLoader loader = new SkuLoader(this);
+		
+		SkuLoader loader = new SkuLoader(theShop);
 		loader.loadFile("C://dev//tdl-runner-java//sku.txt");
-		
 
 	}
 	
-	public void addSku(SKU aSku)
-	{
-		skusInShop.put(aSku.getId(), aSku);
-	}
+	
 	
 
-	public SKU getSku(String id)
-	{
-		return skusInShop.get(id);
-	}
-	
-	public void printBasket(HashMap<String,Integer> basket)
-	{
-		for ( String aSkuId: basket.keySet() )
-    	{
-			System.out.println("SKU " + aSkuId + " = " + basket.get(aSkuId));
-    	}
-	}
-	
-	public HashMap<String,Integer>	decodeSkuString(String skuString) throws DecodeException
-	{
-		HashMap<String,Integer>	skusInBasket	= new HashMap<String,Integer>();
-		String					aSku;
-		Integer					skuCount;
-		
-    	if ( skuString != null && skuString.length() > 0)
-    	{
-    		for (int index=0;index <skuString.length(); index++)
-    		{
-    			aSku = new String(skuString.substring(index, index+1));
-    			
-    			if ( skusInShop.containsKey(aSku) )
-    			{
-    				if (skusInBasket.containsKey(aSku) )
-        			{
-        				skuCount = skusInBasket.get(aSku);
-        				skusInBasket.put(aSku, Integer.valueOf(skuCount.intValue()+1) );
-        			}
-        			else
-        			{
-        				skusInBasket.put(aSku, Integer.valueOf(1) );
-        			}
-    			}
-    			else
-    				throw new DecodeException("Illegal value in String");
-    			
-    		}
-    	}
-		return skusInBasket;
-	}
 	
 	/**
 	 * Calculate value of basket

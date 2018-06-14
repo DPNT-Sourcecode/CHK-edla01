@@ -41,6 +41,7 @@ public class SkuLoader {
 		int			numberOfFields = fields.length;
 		SKU			aSku;
 		SkuOffer	anOffer;
+		GroupOffer	aGroupOffer;
 		
 		if ( numberOfFields > 0)
 		{
@@ -89,6 +90,33 @@ public class SkuLoader {
 				else
 				{
 					System.out.println("Invalid offer " + aLine);
+				}
+				break;
+			case 	"G":
+				// Group Offer
+				
+				
+				if ( numberOfFields >= 4) // must be one item in group
+				{
+					aGroupOffer = new GroupOffer(Integer.parseInt(fields[1]),Integer.parseInt(fields[2]));
+					
+					for (int index = 3; index <numberOfFields; index++ )
+					{
+						aSku = theShop.getSku(fields[index]);
+						if ( aSku != null )
+						{
+							aGroupOffer.addQualifyingSku(aSku);
+						}
+						else
+						{
+							System.out.println("Invalid group/sku " + aLine);
+						}
+					}
+
+				}
+				else
+				{
+					System.out.println("Invalid group " + aLine);
 				}
 				break;
 			}
