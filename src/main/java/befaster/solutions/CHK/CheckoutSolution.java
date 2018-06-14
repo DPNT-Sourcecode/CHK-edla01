@@ -16,19 +16,19 @@ public class CheckoutSolution {
 		SKU	B = new SKU("B",30);
 		SKU	C = new SKU("C",20);
 		SKU	D = new SKU("D",15);
-		SKU	E = new SKU("E",40,B);
+		SKU	E = new SKU("E",40);
 		
 		addSku(A);
 		addSku(B);
-		addSku(C));
+		addSku(C);
 		addSku(D);
 		addSku(E);
 
-		getSku("A").addOffer(new SkuOffer(3,130));
-		getSku("A").addOffer(new SkuOffer(5,200));
-		getSku("B").addOffer(new SkuOffer(2,45));
+		A.addOffer(new SkuOffer(3,130));
+		A.addOffer(new SkuOffer(5,200));
+		B.addOffer(new SkuOffer(2,45));
 		
-		getSku("E").addOffer(new SkuOffer(2,80,getSku("B")));  // free B if two E
+		E.addOffer(new SkuOffer(2,80,B));  // free B if two E
 	}
 	
 	public void addSku(SKU aSku)
