@@ -44,6 +44,14 @@ public class CheckoutSolution {
 		return skusInShop.get(id);
 	}
 	
+	public void printBasket(HashMap<String,Integer> basket)
+	{
+		for ( String aSkuId: basket.keySet() )
+    	{
+			System.out.println("SKU " + aSkuId + " = " + basket.get(aSkuId));
+    	}
+	}
+	
 	public HashMap<String,Integer>	decodeSkuString(String skuString) throws DecodeException
 	{
 		HashMap<String,Integer>	skusInBasket	= new HashMap<String,Integer>();
@@ -95,6 +103,9 @@ public class CheckoutSolution {
     	{
     		return -1;
     	}
+    	
+    	System.out.println(skus);
+    	printBasket(skusInBasket);
     	
     	// remove freebies up front
     	for ( String aSkuId: skusInBasket.keySet() )
