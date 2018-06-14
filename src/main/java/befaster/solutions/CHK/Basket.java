@@ -14,11 +14,44 @@ public class Basket {
 		
 	}
 	
+	public void addSku(String aSku)
+	{
+		Integer					skuCount;
+		
+		if (basketItems.containsKey(aSku) )
+		{
+			skuCount = basketItems.get(aSku);
+			basketItems.put(aSku, Integer.valueOf(skuCount.intValue()+1) );
+		}
+		else
+		{
+			basketItems.put(aSku, Integer.valueOf(1) );
+		}
+	}
+	
+	public void removeSku(String aSku)
+	{
+		Integer					skuCount;
+		
+		if (basketItems.containsKey(aSku) )
+		{
+			skuCount = basketItems.get(aSku);
+			if (skuCount> 1 )
+			{
+				basketItems.put(aSku, Integer.valueOf(skuCount.intValue()-1) );
+			}
+			else
+			{
+				basketItems.remove(aSku);
+			}
+		}
+	}
+	
+	
 	public void	decodeSkuString(String skuString) throws DecodeException
 	{
-		HashMap<String,Integer>	skusInBasket	= new HashMap<String,Integer>();
 		String					aSku;
-		Integer					skuCount;
+		
 		
     	if ( skuString != null && skuString.length() > 0)
     	{
@@ -26,17 +59,10 @@ public class Basket {
     		{
     			aSku = new String(skuString.substring(index, index+1));
     			
+    			addSku(aSku);
     			if ( theShop.isValidSku(aSku) )
     			{
-    				if (skusInBasket.containsKey(aSku) )
-        			{
-        				skuCount = skusInBasket.get(aSku);
-        				basketItems.put(aSku, Integer.valueOf(skuCount.intValue()+1) );
-        			}
-        			else
-        			{
-        				skusInBasket.put(aSku, Integer.valueOf(1) );
-        			}
+    				addSku(aSku);
     			}
     			else
     				throw new DecodeException("Illegal value in String");
