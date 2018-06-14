@@ -1,5 +1,7 @@
 package befaster.solutions.CHK;
 
+import java.util.*;
+
 public class GroupOffer {
 	private	int			offerQuantity;
 	private int 		offerPrice;
@@ -33,9 +35,20 @@ public class GroupOffer {
 	
 	}
 	
-	public boolean isEligible(int aQuantity)
+	public boolean isEligible(Basket theBasket)
 	{
-		return aQuantity >=  offerQuantity;
+		if ( qualifyingSkus.isEmpty() )
+		{
+			// invalid group
+			return false;
+		}
+		
+		for (SKU aSku: qualifyingSkus )
+		{
+			if ( !theBasket.contains(aSku.getId() ))
+				return false;
+		}
+		return true;
 	}
 	
 }
