@@ -27,6 +27,9 @@ public class TestCheckoutSolution {
 		assert(checkout.checkout("FFFF") == 30);
 		assert(checkout.checkout("FFFFF") == 40);
 		assert(checkout.checkout("FFFFFF") == 40);
+		
+		assert(checkout.checkout("Z") == 50);
+		assert(checkout.checkout("NNNM") == 120);
 
 	}
 
