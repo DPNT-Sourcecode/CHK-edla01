@@ -45,6 +45,11 @@ public class Basket {
     	}
 	}
 	
+	public boolean contains(String aSku)
+	{
+		return basketItems.containsKey(aSku);
+	}
+	
 	public void printBasket()
 	{
 		for ( String aSkuId: basketItems.keySet() )

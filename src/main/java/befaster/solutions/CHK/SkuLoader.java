@@ -8,11 +8,11 @@ import java.nio.file.Paths;
 
 public class SkuLoader {
 
-	private	CheckoutSolution checkout;
+	private	Shop theShop;
 	
-	public SkuLoader(CheckoutSolution parent)
+	public SkuLoader(Shop parent)
 	{
-		checkout = parent;
+		theShop = parent;
 	}
 	
 	public void loadFile(String filename)
@@ -51,7 +51,7 @@ public class SkuLoader {
 				if ( numberOfFields >= 3)
 				{
 					aSku = new SKU(fields[1], Integer.parseInt(fields[2]) );
-					checkout.addSku(aSku);
+					theShop.addSku(aSku);
 				}
 				else
 				{
@@ -60,7 +60,7 @@ public class SkuLoader {
 				break;
 			case 	"O":
 				// Offer
-				aSku = checkout.getSku(fields[1]);
+				aSku = theShop.getSku(fields[1]);
 				if ( numberOfFields >= 4)
 				{
 					if ( aSku != null )
@@ -70,7 +70,7 @@ public class SkuLoader {
 						
 						if (numberOfFields >= 5 )
 						{
-							SKU	associated = checkout.getSku(fields[4]);
+							SKU	associated = theShop.getSku(fields[4]);
 							if ( associated != null )
 							{
 								anOffer.setFreebie(associated);
