@@ -4,22 +4,25 @@ import java.util.*;
 
 public class GroupOffer {
 	
-	class MostExpensive implements Comparator<SKU>{
+	class MostExpensiveComparator implements Comparator<SKU>{
 		@Override
 		public int compare(SKU s1, SKU s2)
 		{
-			return s1.
+			if ( s1.getPrice() > s2.getPrice() )
+				return 1;
+			else
+				return -1;
 		}
 	}
-	private	int			offerQuantity;
-	private int 		offerPrice;
-	private List<SKU>	qualifyingSkus;
+	private	int				offerQuantity;
+	private int 			offerPrice;
+	private TreeSet<SKU>	qualifyingSkus;
 	
 	public GroupOffer(int quantity, int price)
 	{
 		offerQuantity = quantity;
 		offerPrice = price;
-		qualifyingSkus = new ArrayList<SKU>();
+		qualifyingSkus = new TreeSet<SKU>(new MostExpensiveComparator());
 	}
 	
 	public int getPrice()
@@ -37,7 +40,7 @@ public class GroupOffer {
 		qualifyingSkus.add(skuIn);
 	}
 	
-	public List<SKU> getQualifyingSkus()
+	public Set<SKU> getQualifyingSkus()
 	{
 		return qualifyingSkus;
 	
