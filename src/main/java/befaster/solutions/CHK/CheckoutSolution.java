@@ -39,6 +39,16 @@ public class CheckoutSolution {
     	}
     	
     	    	
+    	// group offers
+    	for ( GroupOffer anOffer: theShop.getGroupOffers())
+    	{
+    		if ( anOffer.isEligible(basket))
+    		{
+    			basket.removeSkus(anOffer.getQualifyingSkus(), anOffer.getQuantity());
+    			totalValue += anOffer.getPrice();
+    		}
+    	}
+    	
     	// remove freebies up front
     	for ( String aSkuId: basket.getSkus() )
     	{

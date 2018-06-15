@@ -19,6 +19,11 @@ public class Basket {
 		return basketItems.keySet();
 	}
 	
+	public void setSkuQuantity(String aSku, int quantity)
+	{
+		basketItems.put(aSku, Integer.valueOf(quantity) );
+	}
+	
 	public int getSkuQuantity(String aSku)
 	{
 		
@@ -58,6 +63,38 @@ public class Basket {
 			else
 			{
 				basketItems.put(aSku, 0);
+			}
+		}
+	}
+	
+	/**
+	 * Remove skews from basket up to limit
+	 * @param skus		list of skus to remove
+	 * @param skuCount max number to remove
+	 */
+	public void removeSkus(Set<SKU> skus, int skuCount)
+	{
+		String 	skuId;
+		int		qtyOfSku 	= 0;
+		int		remaining	= skuCount;
+		
+		for ( SKU aSku: skus )
+		{
+			skuId 	= aSku.getId();
+			qtyOfSku = getSkuQuantity(skuId);
+		
+			if ( ( remaining > 0 ) && ( qtyOfSku > 0 ) )
+			{
+				if ( remaining < qtyOfSku )
+				{
+					setSkuQuantity(skuId,qtyOfSku-remaining);
+					remaining = 0;
+				}
+				else
+				{
+					setSkuQuantity(skuId,0);
+					remaining -= qtyOfSku;
+				}				
 			}
 		}
 	}
