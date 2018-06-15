@@ -14,6 +14,16 @@ public class Basket {
 		
 	}
 	
+	public int getSkuQuantity(String aSku)
+	{
+		
+		if ( basketItems.containsKey(aSku))
+		{
+			return basketItems.get(aSku);
+		}
+		return 0;
+	}
+	
 	public void addSku(String aSku)
 	{
 		Integer					skuCount;
