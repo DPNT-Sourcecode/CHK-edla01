@@ -34,6 +34,12 @@ public class TestCheckoutSolution {
 		assert(checkout.checkout("STX") == 45);
 		assert(checkout.checkout("XXX") == 45);
 
+		assert(checkout.checkout("STXSTX") == 90);
+
+		assert(checkout.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ") == 1602);
+
+		assert(checkout.checkout("LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH") == 1602);
+
 	}
 
 }

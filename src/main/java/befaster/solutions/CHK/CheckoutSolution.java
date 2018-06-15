@@ -42,10 +42,9 @@ public class CheckoutSolution {
     	// group offers
     	for ( GroupOffer anOffer: theShop.getGroupOffers())
     	{
-    		if ( anOffer.isEligible(basket))
+    		while ( anOffer.isEligible(basket))
     		{
-    			System.out.println("Eligible");
-;   			basket.removeSkus(anOffer.getQualifyingSkus(), anOffer.getQuantity());
+    			basket.removeSkus(anOffer.getQualifyingSkus(), anOffer.getQuantity());
     			totalValue += anOffer.getPrice();
     		}
     	}
