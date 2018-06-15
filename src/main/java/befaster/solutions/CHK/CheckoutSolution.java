@@ -44,7 +44,8 @@ public class CheckoutSolution {
     	{
     		if ( anOffer.isEligible(basket))
     		{
-    			basket.removeSkus(anOffer.getQualifyingSkus(), anOffer.getQuantity());
+    			System.out.println("Eligible");
+;   			basket.removeSkus(anOffer.getQualifyingSkus(), anOffer.getQuantity());
     			totalValue += anOffer.getPrice();
     		}
     	}
