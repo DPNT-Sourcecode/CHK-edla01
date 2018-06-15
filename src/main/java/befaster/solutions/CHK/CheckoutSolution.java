@@ -51,24 +51,22 @@ public class CheckoutSolution {
     public Integer checkout(String skus) {
     	int						totalValue 		= 0;
     	HashMap<String,Integer>	skusInBasket	= null;
+    	Basket					basket			= new Basket(theShop);
     	SKU						aSku;
 
     	try
     	{
-    		skusInBasket	= decodeSkuString(skus);
+    		basket.decodeSkuString(skus);
     	}
     	catch (DecodeException e)
     	{
     		return -1;
     	}
-    	
-    	//System.out.println(skus);
-    	//printBasket(skusInBasket);
-    	
+    	    	
     	// remove freebies up front
-    	for ( String aSkuId: skusInBasket.keySet() )
+    	for ( String aSkuId: basket.getSkus() )
     	{
-    		aSku = skusInShop.get(aSkuId);
+    		aSku = theShop.getSku(aSkuId);
     		
     		if ( aSku != null )
     		{
@@ -79,13 +77,9 @@ public class CheckoutSolution {
     				String	freebieId 	= freebie.getId();
     				int		value 		= 0;
     				
-    				if (skusInBasket.containsKey(freebieId) )
+    				if (basket.contains(freebieId) )
     				{
-    					value 		= skusInBasket.get(freebieId);
-    					if ( value > 0)
-    					{
-    						skusInBasket.put(freebieId, value-1);
-    					}
+    					basket.removeSku(freebieId);
     				}    				
     			}
     		}
