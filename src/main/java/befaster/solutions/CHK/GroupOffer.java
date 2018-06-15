@@ -59,8 +59,10 @@ public class GroupOffer {
 		for (SKU aSku: qualifyingSkus )
 		{
 			numberOfQualifying += theBasket.getSkuQuantity(aSku.getId());
+			System.out.println("Qualifying=" + aSku.getId() + "=" + theBasket.getSkuQuantity(aSku.getId()) );
 			
 		}
+		System.out.println("Qualifying=" + numberOfQualifying);
 		return numberOfQualifying >= offerQuantity;
 	}
 	
