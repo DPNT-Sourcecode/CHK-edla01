@@ -113,6 +113,7 @@ public class SkuLoader {
 						}
 					}
 					theShop.addGroupOffer(aGroupOffer);
+					System.out.println(aGroupOffer.toString());
 				}
 				else
 				{

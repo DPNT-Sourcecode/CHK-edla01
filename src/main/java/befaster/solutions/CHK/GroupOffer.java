@@ -64,4 +64,16 @@ public class GroupOffer {
 		return numberOfQualifying >= offerQuantity;
 	}
 	
+	public String toString()
+	{
+		StringBuffer	buffer = new StringBuffer();
+		buffer.append("GroupOffer<" + offerQuantity + "," + offerPrice +"," );
+		for (SKU aSku: qualifyingSkus )
+		{
+			buffer.append(aSku.getId());
+			buffer.append(" ");			
+		}
+		buffer.append(">");
+		return buffer.toString();
+	}
 }
