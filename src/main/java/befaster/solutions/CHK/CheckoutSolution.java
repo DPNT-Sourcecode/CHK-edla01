@@ -9,37 +9,13 @@ public class CheckoutSolution {
 	
 	/**
 	 * Constructor
-	 * Set up valid Skus - would do this in reality
 	 */
 	public CheckoutSolution()
 	{
-		/**
-		SKU	A = new SKU("A",50);
-		SKU	B = new SKU("B",30);
-		SKU	C = new SKU("C",20);
-		SKU	D = new SKU("D",15);
-		SKU	E = new SKU("E",40);
-		SKU	F = new SKU("F",10);
-		
-		addSku(A);
-		addSku(B);
-		addSku(C);
-		addSku(D);
-		addSku(E);
-		addSku(F);
-
-		A.addOffer(new SkuOffer(3,130));
-		A.addOffer(new SkuOffer(5,200));
-		B.addOffer(new SkuOffer(2,45));
-		*/
-		
 		SkuLoader loader = new SkuLoader(theShop);
 		loader.loadFile("C://dev//tdl-runner-java//sku.txt");
 
 	}
-	
-	
-	
 
 	
 	/**
@@ -62,7 +38,6 @@ public class CheckoutSolution {
     		return -1;
     	}
     	
-    	basket.printBasket();
     	    	
     	// remove freebies up front
     	for ( String aSkuId: basket.getSkus() )

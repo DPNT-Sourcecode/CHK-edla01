@@ -87,7 +87,6 @@ public class Basket {
     		{
     			aSku = new String(skuString.substring(index, index+1));
     			
-    			addSku(aSku);
     			if ( theShop.isValidSku(aSku) )
     			{
     				addSku(aSku);
