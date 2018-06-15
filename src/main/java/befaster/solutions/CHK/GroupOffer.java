@@ -43,12 +43,14 @@ public class GroupOffer {
 			return false;
 		}
 		
+		int	numberOfQualifying = 0;
+		
 		for (SKU aSku: qualifyingSkus )
 		{
-			if ( !theBasket.contains(aSku.getId() ))
-				return false;
+			numberOfQualifying += theBasket.getSkuQuantity(aSku.getId());
+			
 		}
-		return true;
+		return numberOfQualifying >= offerQuantity;
 	}
 	
 }

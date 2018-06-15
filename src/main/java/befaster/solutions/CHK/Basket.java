@@ -14,6 +14,11 @@ public class Basket {
 		
 	}
 	
+	public Set<String> getSkus()
+	{
+		return basketItems.keySet();
+	}
+	
 	public int getSkuQuantity(String aSku)
 	{
 		
@@ -52,7 +57,7 @@ public class Basket {
 			}
 			else
 			{
-				basketItems.remove(aSku);
+				basketItems.put(aSku, 0);
 			}
 		}
 	}
