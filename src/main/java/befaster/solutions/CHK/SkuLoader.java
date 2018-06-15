@@ -112,7 +112,7 @@ public class SkuLoader {
 							System.out.println("Invalid group/sku " + aLine);
 						}
 					}
-
+					theShop.addGroupOffer(aGroupOffer);
 				}
 				else
 				{

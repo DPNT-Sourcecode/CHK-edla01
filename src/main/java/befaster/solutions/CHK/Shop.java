@@ -1,10 +1,11 @@
 package befaster.solutions.CHK;
 
-import java.util.HashMap;
+import java.util.*;
 
 public class Shop {
 	
 	HashMap<String,SKU>	skusInShop	= new HashMap<String,SKU>();
+	List<GroupOffer>	groupOffers	= new ArrayList<GroupOffer>();
 	
 	public Shop()
 	{
@@ -27,4 +28,13 @@ public class Shop {
 		return skusInShop.containsKey(id);
 	}
 
+	public void addGroupOffer(GroupOffer offer )
+	{
+		groupOffers.add(offer);
+	}
+	
+	public List<GroupOffer> getGroupOffers()
+	{
+		return groupOffers;
+	}
 }
