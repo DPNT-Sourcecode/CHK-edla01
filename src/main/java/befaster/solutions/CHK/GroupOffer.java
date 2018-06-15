@@ -3,6 +3,14 @@ package befaster.solutions.CHK;
 import java.util.*;
 
 public class GroupOffer {
+	
+	class MostExpensive implements Comparator<SKU>{
+		@Override
+		public int compare(SKU s1, SKU s2)
+		{
+			return s1.
+		}
+	}
 	private	int			offerQuantity;
 	private int 		offerPrice;
 	private List<SKU>	qualifyingSkus;

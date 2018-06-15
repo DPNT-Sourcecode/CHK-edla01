@@ -21,6 +21,11 @@ public class SKU
 		return id;
 	}
 	
+	public int getPrice()
+	{
+		return price;
+	}
+	
 	public void addOffer(SkuOffer anOffer)
 	{
 		offers.add(anOffer);
