@@ -140,12 +140,17 @@ public class Basket {
 		return basketItems.containsKey(aSku);
 	}
 	
-	public void printBasket()
+	public String toString()
 	{
+		StringBuffer buffer = new StringBuffer();
+		
 		for ( String aSkuId: basketItems.keySet() )
     	{
-			System.out.println("SKU " + aSkuId + " = " + basketItems.get(aSkuId));
+			buffer.append("SKU " + aSkuId + " = " + basketItems.get(aSkuId));
+			buffer.append(",");
     	}
+		
+		return buffer.toString();
 	}
 	
 }

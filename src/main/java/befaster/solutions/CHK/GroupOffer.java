@@ -48,6 +48,7 @@ public class GroupOffer {
 	
 	public boolean isEligible(Basket theBasket)
 	{
+		System.out.println(theBasket.toString());
 		if ( qualifyingSkus.isEmpty() )
 		{
 			// invalid group
