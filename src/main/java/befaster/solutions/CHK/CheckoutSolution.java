@@ -50,7 +50,6 @@ public class CheckoutSolution {
 	 */
     public Integer checkout(String skus) {
     	int						totalValue 		= 0;
-    	HashMap<String,Integer>	skusInBasket	= null;
     	Basket					basket			= new Basket(theShop);
     	SKU						aSku;
 
@@ -62,6 +61,8 @@ public class CheckoutSolution {
     	{
     		return -1;
     	}
+    	
+    	basket.printBasket();
     	    	
     	// remove freebies up front
     	for ( String aSkuId: basket.getSkus() )
@@ -70,12 +71,11 @@ public class CheckoutSolution {
     		
     		if ( aSku != null )
     		{
-    			List<SKU>	freebies = aSku.getFreebies(skusInBasket.get(aSkuId));
+    			List<SKU>	freebies = aSku.getFreebies(basket.getSkuQuantity(aSkuId));
     			
     			for ( SKU freebie: freebies )
     			{
     				String	freebieId 	= freebie.getId();
-    				int		value 		= 0;
     				
     				if (basket.contains(freebieId) )
     				{
@@ -90,13 +90,13 @@ public class CheckoutSolution {
     	}
 
     	// Sum up prices
-    	for ( String aSkuId: skusInBasket.keySet() )
+    	for ( String aSkuId: basket.getSkus() )
     	{
-    		aSku = skusInShop.get(aSkuId);
+    		aSku = theShop.getSku(aSkuId);
     		
     		if ( aSku != null )
     		{
-    			totalValue  += aSku.getBestPrice(skusInBasket.get(aSkuId));
+    			totalValue  += aSku.getBestPrice(basket.getSkuQuantity(aSkuId));
     		}
     		else
     		{
