@@ -8,7 +8,7 @@ public class GroupOffer {
 		@Override
 		public int compare(SKU s1, SKU s2)
 		{
-			if ( s1.getPrice() > s2.getPrice() )
+			if ( s1.getPrice() < s2.getPrice() )
 				return 1;
 			else
 				return -1;

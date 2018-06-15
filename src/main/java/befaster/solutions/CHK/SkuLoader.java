@@ -94,8 +94,6 @@ public class SkuLoader {
 				break;
 			case 	"G":
 				// Group Offer
-				
-				
 				if ( numberOfFields >= 4) // must be one item in group
 				{
 					aGroupOffer = new GroupOffer(Integer.parseInt(fields[1]),Integer.parseInt(fields[2]));
@@ -113,7 +111,6 @@ public class SkuLoader {
 						}
 					}
 					theShop.addGroupOffer(aGroupOffer);
-					System.out.println(aGroupOffer.toString());
 				}
 				else
 				{
